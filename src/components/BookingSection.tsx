@@ -45,7 +45,27 @@ const BookingSection = ({ onBack }: BookingSectionProps) => {
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const startOffset = firstDay === 0 ? 6 : firstDay - 1;
 
-  const handleBook = () => {
+  const handleBook = async () => {
+    const sessionLabel = sessionTypes.find(s => s.id === selectedType)?.label ?? selectedType;
+    const dateLabel = `${selectedDay} ${MONTHS[currentMonth]} ${currentYear}`;
+
+    try {
+      await fetch("https://functions.poehali.dev/d992928a-d71d-48b3-8fff-f39fabcccf4c", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          date: dateLabel,
+          time: selectedTime,
+          sessionType: sessionLabel,
+          comment,
+        }),
+      });
+    } catch {
+      // Уведомление не критично — запись всё равно подтверждаем
+    }
+
     setBooked(true);
   };
 

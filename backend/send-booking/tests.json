@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Send booking notification to Telegram",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест Тестов",
+        "phone": "+7 999 000-00-00",
+        "date": "17 Май",
+        "time": "15:00",
+        "sessionType": "Индивидуальная сессия",
+        "comment": "Тестовая запись"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
