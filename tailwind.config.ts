@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1779039751439149364.html"
 	],
 	prefix: "",
 	theme: {
@@ -17,8 +18,15 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+			sans: ['Golos Text', 'system-ui', 'sans-serif'],
+		},
 		extend: {
 			colors: {
+				'neon-violet': '#a855f7',
+				'neon-pink': '#ec4899',
+				'neon-teal': '#14b8a6',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -88,7 +96,9 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-up 0.6s ease-out forwards',
+				'float': 'float 6s ease-in-out infinite',
 			}
 		}
 	},
